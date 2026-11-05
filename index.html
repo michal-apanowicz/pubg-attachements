@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PUBG // Attachments Briefing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600&family=Rajdhani:wght@500;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <!-- ============ HUD ============ -->
+    <header class="hud-top">
+        <div class="brand"><span class="brand-mark">PUBG</span><span class="brand-sub">// ATTACHMENTS BRIEFING</span>
+        </div>
+        <div class="compass" aria-hidden="true">
+            <div class="compass-strip" id="compassStrip"></div>
+            <div class="compass-needle"></div>
+        </div>
+        <div class="counters">
+            <div class="counter"><span class="num" id="aliveNum">100</span><span class="lbl">ALIVE</span></div>
+            <div class="counter"><span class="num" id="killNum">0</span><span class="lbl">KILLS</span></div>
+        </div>
+    </header>
+
+    <div class="killfeed" id="killfeed" aria-live="polite"></div>
+
+    <main class="deck" id="deck">
+
+        <!-- 0. TITLE -->
+        <section class="slide slide-title" data-title="Lobby">
+            <div class="title-wrap">
+                <p class="eyebrow">Battlegrounds Field Manual</p>
+                <h1 class="mega">ATTACH<span>MENTS</span></h1>
+                <p class="lead">Jak dodatki zmieniają zachowanie broni: lufy, chwyty, celowniki i magazynki.</p>
+                <div class="title-icons" id="titleIcons"></div>
+                <button class="btn btn-primary" data-goto="1">READY ▸</button>
+                <p class="hint">Sterowanie: <kbd>←</kbd> <kbd>→</kbd> / <kbd>Spacja</kbd> &nbsp;·&nbsp; <kbd>M</kbd>
+                    mapa slajdów &nbsp;·&nbsp; <kbd>F</kbd> pełny ekran</p>
+                <p class="credit">made by <b>[CRZ8]</b> LogicalAPAN</p>
+            </div>
+        </section>
+
+        <!-- 1. INVENTORY / AGENDA -->
+        <section class="slide" data-title="Ekwipunek">
+            <h2 class="slide-h">Ekwipunek <small>/ agenda</small></h2>
+            <div class="inventory">
+                <div class="inv-weapon">
+                    <div class="inv-weapon-head"><span>M416</span><span class="ammo-tag">5.56mm</span></div>
+                    <div class="rifle-wrap">
+                        <img class="rifle ico" src="images/Icon_weapon_HK416.webp" alt="M416" />
+                        <i class="rifle-mark" data-mark="muzzle" style="left:15%;top:16%"></i>
+                        <i class="rifle-mark" data-mark="grip" style="left:33.4%;top:39.2%"></i>
+                        <i class="rifle-mark" data-mark="sight" style="left:54.9%;top:46.2%"></i>
+                        <i class="rifle-mark" data-mark="mag" style="left:39.5%;top:56.1%"></i>
+                        <i class="rifle-mark" data-mark="stock" style="left:80.3%;top:79.7%"></i>
+                    </div>
+                    <div class="inv-slots">
+                        <button class="inv-slot" data-mark="muzzle" data-goto="3"><span
+                                class="slot-ico">◉</span><b>Lufa</b><small>Muzzle</small></button>
+                        <button class="inv-slot" data-mark="grip" data-goto="8"><span class="slot-ico">⊥</span><b>Dolna
+                                szyna</b><small>Grip / Laser</small></button>
+                        <button class="inv-slot" data-mark="sight" data-goto="10"><span
+                                class="slot-ico">⊕</span><b>Celownik</b><small>Sight</small></button>
+                        <button class="inv-slot" data-mark="mag" data-goto="11"><span
+                                class="slot-ico">▮</span><b>Magazynek</b><small>Magazine</small></button>
+                        <button class="inv-slot" data-mark="stock" data-goto="12"><span
+                                class="slot-ico">◣</span><b>Kolba</b><small>Stock</small></button>
+                    </div>
+                </div>
+                <div class="inv-list">
+                    <button class="inv-row" data-goto="2"><span>01</span>Cechy broni</button>
+                    <button class="inv-row" data-goto="3"><span>02</span>Lufa: tłumiki, tłumiki płomienia,
+                        kompensatory</button>
+                    <button class="inv-row" data-goto="7"><span>03</span>Porównanie nasadek</button>
+                    <button class="inv-row" data-goto="8"><span>04</span>Chwyty i laser</button>
+                    <button class="inv-row" data-goto="10"><span>05</span>Przyrządy celownicze</button>
+                    <button class="inv-row" data-goto="11"><span>06</span>Magazynki</button>
+                    <button class="inv-row" data-goto="12"><span>07</span>Kolby</button>
+                    <button class="inv-row" data-goto="13"><span>08</span>Loadout builder</button>
+                    <button class="inv-row" data-goto="14"><span>09</span>Quiz</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. STATS GLOSSARY -->
+        <section class="slide" data-title="Cechy">
+            <h2 class="slide-h">Cechy <small>/ co tak naprawdę zmieniają dodatki</small></h2>
+            <div class="stat-grid">
+                <article class="panel stat-card">
+                    <div class="demo demo-spread" id="demoSpread"><i class="xhair"></i></div>
+                    <h3>Spread</h3>
+                    <p>Jak bardzo pociski rozpraszają się podczas strzału.</p>
+                </article>
+                <article class="panel stat-card">
+                    <div class="demo demo-deviation"><i class="tgt"></i><svg class="iron">
+                            <use href="#ironSight" />
+                        </svg><i class="hit"></i></div>
+                    <h3>Deviation</h3>
+                    <p>Odchylenie pocisku od zamierzonego celu.</p>
+                </article>
+                <article class="panel stat-card">
+                    <div class="demo demo-recoil"><i class="tgt"></i><i class="blast"></i><svg class="iron">
+                            <use href="#ironSight" />
+                        </svg></div>
+                    <h3>Recoil</h3>
+                    <p>Siła odrzutu broni po wystrzale.</p>
+                </article>
+                <article class="panel stat-card">
+                    <div class="demo demo-sway"><i class="tgt"></i><svg class="iron">
+                            <use href="#ironSight" />
+                        </svg></div>
+                    <h3>Sway</h3>
+                    <p>Jak bardzo broń porusza się podczas celowania.</p>
+                </article>
+                <article class="panel stat-card">
+                    <div class="demo demo-dof"><i class="bg"></i><i class="xhair"></i></div>
+                    <h3>Camera DOF</h3>
+                    <p>Głębia ostrości kamery podczas celowania.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- 3. MUZZLE OVERVIEW -->
+        <section class="slide" data-title="Lufa">
+            <h2 class="slide-h">Lufa <small>/ muzzle</small></h2>
+            <div class="muzzle-overview">
+                <button class="panel mo-card" data-goto="4">
+                    <img class="ico" src="images/Icon_attach_Muzzle_Suppressor_Large.webp" alt="Suppressor" />
+                    <h3>Tłumiki</h3>
+                    <ul class="ticks">
+                        <li class="good">Usuwa rozbłysk strzału</li>
+                        <li class="good">Ogranicza huk wystrzału</li>
+                        <li class="good">−5% Deviation</li>
+                        <li class="bad">Wydłuża broń – potrzebujesz więcej miejsca od zasłony</li>
+                    </ul>
+                </button>
+                <button class="panel mo-card" data-goto="5">
+                    <img class="ico" src="images/Icon_attach_Muzzle_FlashHider_Large.webp" alt="Flash Hider" />
+                    <h3>Tłumiki płomienia</h3>
+                    <ul class="ticks">
+                        <li class="good">Częściowo eliminuje błysk</li>
+                        <li class="good">−10% recoil (pattern / H / V)</li>
+                        <li class="neutral">Nie wycisza strzału</li>
+                    </ul>
+                </button>
+                <button class="panel mo-card" data-goto="6">
+                    <img class="ico" src="images/Icon_attach_Muzzle_Compensator_Large.webp" alt="Compensator" />
+                    <h3>Kompensatory</h3>
+                    <ul class="ticks">
+                        <li class="good">Najsilniejsza redukcja odrzutu</li>
+                        <li class="good">−25% Recoil Pattern</li>
+                        <li class="neutral">Brak wpływu na błysk i dźwięk</li>
+                    </ul>
+                </button>
+            </div>
+            <p class="intel">INTEL: Tłumik = ukrycie pozycji. Kompensator = kontrola sprayu. Flash Hider = kompromis.
+            </p>
+        </section>
+
+        <!-- 4. SUPPRESSORS -->
+        <section class="slide" data-title="Tłumiki">
+            <h2 class="slide-h">Tłumiki <small>/ suppressors</small></h2>
+            <p class="sub">Wydłużają broń – zwiększają odległość od zasłony, z której możesz strzelać. Usuwają rozbłysk
+                i ograniczają huk wystrzału.</p>
+            <div class="cards" data-cards="suppressor"></div>
+        </section>
+
+        <!-- 5. FLASH HIDERS -->
+        <section class="slide" data-title="Tłumiki płomienia">
+            <h2 class="slide-h">Tłumiki płomienia <small>/ flash hiders</small></h2>
+            <p class="sub">CZĘŚCIOWO eliminują błysk wystrzału i zmniejszają widoczność strzału. Równo −10% do każdej
+                składowej odrzutu.</p>
+            <div class="cards" data-cards="flash"></div>
+        </section>
+
+        <!-- 6. COMPENSATORS -->
+        <section class="slide" data-title="Kompensatory">
+            <h2 class="slide-h">Kompensatory <small>/ compensators</small></h2>
+            <p class="sub">Największa redukcja odrzutu spośród nasadek – wybór do walki na spray.</p>
+            <div class="cards" data-cards="comp"></div>
+        </section>
+
+        <!-- 7. MUZZLE COMPARE -->
+        <section class="slide" data-title="Porównanie nasadek">
+            <h2 class="slide-h">Porównanie nasadek <small>/ wybierz klasę broni</small></h2>
+            <div class="tabs" id="muzzleTabs">
+                <button class="tab active" data-class="AR">AR / DMR / S12K</button>
+                <button class="tab" data-class="SMG">Handgun / SMG</button>
+                <button class="tab" data-class="SR">DMR / SR</button>
+            </div>
+            <div class="compare" id="muzzleCompare"></div>
+            <p class="intel">Wartości ujemne = mniejszy odrzut/odchylenie = lepiej. Najdłuższy pasek wygrywa.</p>
+        </section>
+
+        <!-- 8. GRIPS -->
+        <section class="slide" data-title="Chwyty">
+            <h2 class="slide-h">Dolna szyna <small>/ chwyty</small></h2>
+            <div class="grip-layout">
+                <div class="grip-list" id="gripList"></div>
+                <div class="panel grip-detail" id="gripDetail"></div>
+            </div>
+            <p class="intel">INTEL (Update 20.1): PUBG przebalansował chwyty – m.in. Thumb Grip +40% ADS, Angled −20%
+                horizontal. Wartości na slajdzie wg materiału źródłowego.</p>
+        </section>
+
+        <!-- 9. LASER -->
+        <section class="slide" data-title="Laser Sight">
+            <h2 class="slide-h">Laser Sight <small>/ run &amp; gun</small></h2>
+            <div class="laser-layout">
+                <div class="panel laser-info">
+                    <p>Zmniejsza odchylenie pocisku (deviation) przy strzelaniu z biodra i podczas celowania – idealny
+                        do akcji <em>run and gun</em>.</p>
+                    <ul class="stats-list">
+                        <li><span>Deviation</span><b class="good">−30%</b></li>
+                        <li><span>Deviation (Handgun)</span><b class="good">−70%</b></li>
+                    </ul>
+                    <div class="tabs" id="laserTabs">
+                        <button class="tab active" data-dev="1">Bez lasera</button>
+                        <button class="tab" data-dev="0.7">Laser</button>
+                        <button class="tab" data-dev="0.3">Laser + pistolet</button>
+                    </div>
+                    <p class="hint">Kliknij w pole strzału, aby oddać serię z biodra.</p>
+                </div>
+                <div class="range" id="laserRange" title="Kliknij, aby strzelić">
+                    <div class="target"></div>
+                    <div class="laser-beam" id="laserBeam"></div>
+                    <div class="hipfire" id="hipfire"></div>
+                    <div class="dev-ring" id="devRing"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. SIGHTS -->
+        <section class="slide" data-title="Celowniki">
+            <h2 class="slide-h">Przyrządy celownicze <small>/ symulator</small></h2>
+            <div class="scope-layout">
+                <div class="scope-list" id="scopeList"></div>
+                <div class="scope-view">
+                    <div class="tabs dist-tabs" id="distTabs" aria-label="Cel na dystansie"></div>
+                    <div class="scope-circle" id="scopeCircle">
+                        <svg class="scene" id="scene" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"></svg>
+                        <svg class="reticle" id="reticle" viewBox="0 0 400 400"></svg>
+                    </div>
+                    <div class="zero-tag">Zeroing Distance<br /><b id="zeroVal">100m</b></div>
+                </div>
+                <div class="panel scope-info" id="scopeInfo"></div>
+            </div>
+        </section>
+
+        <!-- 11. MAGAZINES -->
+        <section class="slide" data-title="Magazynki">
+            <h2 class="slide-h">Magazynki <small>/ czas przeładowania</small></h2>
+            <div class="mag-chart" id="magChart"></div>
+            <p class="intel">QuickDraw = szybsze przeładowanie. Extended = większa pojemność. Extended QuickDraw = oba
+                naraz.</p>
+        </section>
+
+        <!-- 12. STOCKS -->
+        <section class="slide" data-title="Kolby">
+            <h2 class="slide-h">Kolby <small>/ stocks</small></h2>
+            <p class="sub">Kolba stabilizuje broń przy ramieniu – szybszy powrót po odrzucie i mniejsze kołysanie. Każda
+                pasuje
+                tylko do wybranych broni.</p>
+            <div class="cards" id="stockCards"></div>
+        </section>
+
+        <!-- 13. LOADOUT BUILDER -->
+        <section class="slide" data-title="Loadout builder">
+            <h2 class="slide-h">Loadout builder <small>/ AR</small></h2>
+            <div class="builder">
+                <div class="builder-left">
+                    <div class="rifle-wrap builder-rifle">
+                        <img class="rifle ico" src="images/Icon_weapon_HK416.webp" alt="M416" />
+                        <i class="rifle-mark slot-mark" data-slot="muzzle" style="left:15%;top:16%"></i>
+                        <i class="rifle-mark slot-mark" data-slot="grip" style="left:33.4%;top:39.2%"></i>
+                        <i class="rifle-mark slot-mark" data-slot="sight" style="left:54.9%;top:46.2%"></i>
+                        <i class="rifle-mark slot-mark" data-slot="mag" style="left:39.5%;top:56.1%"></i>
+                    </div>
+                    <div class="selectors" id="builderSelectors"></div>
+                </div>
+                <div class="panel builder-stats" id="builderStats"></div>
+            </div>
+        </section>
+
+        <!-- 14. QUIZ -->
+        <section class="slide" data-title="Quiz">
+            <h2 class="slide-h">Quiz <small>/ każda dobra odpowiedź = kill</small></h2>
+            <div class="quiz" id="quiz"></div>
+        </section>
+
+        <!-- 15. END -->
+        <section class="slide slide-end" data-title="Chicken Dinner">
+            <div class="end-wrap">
+                <p class="eyebrow">#1 / 100</p>
+                <h1 class="mega small">WINNER WINNER<br /><span>CHICKEN DINNER!</span></h1>
+                <div class="end-stats">
+                    <div><b id="endKills">0</b><span>Kills</span></div>
+                    <div><b>16</b><span>Slajdów</span></div>
+                    <div><b>30+</b><span>Dodatków</span></div>
+                </div>
+                <button class="btn" data-goto="0">◂ Powrót do lobby</button>
+                <p class="credit">made by <b>[CRZ8]</b> LogicalAPAN</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ============ BOTTOM HUD ============ -->
+    <footer class="hud-bottom">
+        <div class="minimap" aria-hidden="true">
+            <div class="zone-white" id="zoneWhite"></div>
+            <div class="zone-blue" id="zoneBlue"></div>
+            <div class="player-dot"></div>
+        </div>
+        <div class="health">
+            <div class="health-label" id="slideTitle">Lobby</div>
+            <div class="health-bar">
+                <div class="health-fill" id="progress"></div>
+            </div>
+        </div>
+        <div class="ammo">
+            <button class="nav-btn" id="prevBtn" aria-label="Poprzedni slajd">◂</button>
+            <div class="ammo-count"><b id="slideNum">1</b><span>/</span><em id="slideTotal">15</em></div>
+            <button class="nav-btn" id="nextBtn" aria-label="Następny slajd">▸</button>
+            <div class="firemode">AUTO</div>
+        </div>
+    </footer>
+
+    <!-- Slide map overlay -->
+    <div class="overlay" id="overlay" hidden>
+        <div class="overlay-inner">
+            <h2 class="slide-h">Mapa slajdów <small>/ M aby zamknąć</small></h2>
+            <div class="overlay-grid" id="overlayGrid"></div>
+        </div>
+    </div>
+
+    <!-- Shared SVG -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+            <g id="rifleShape">
+                <path class="rifle-body"
+                    d="M20 70 L120 60 L135 52 L210 52 L215 40 L390 40 L395 52 L540 52 L545 60 L590 60 L590 76 L545 76 L540 84 L460 84 L455 100 L405 100 L400 84 L330 84 L318 150 L272 150 L282 84 L230 84 L220 120 L185 125 L175 96 L135 96 L40 120 L20 118 Z" />
+                <rect class="rifle-rail" x="215" y="34" width="175" height="6" />
+            </g>
+            <!-- rear aperture + front post; post tip is the aim point at (200,200) -->
+            <symbol id="ironSight" viewBox="0 0 400 400">
+                <path fill-rule="evenodd" fill="#0c0d0f" fill-opacity=".93"
+                    d="M0 0H400V400H0Z M160 200a40 40 0 1 0 80 0a40 40 0 1 0 -80 0Z" />
+                <circle cx="200" cy="200" r="41" fill="none" stroke="#2b2d32" stroke-width="6" />
+                <circle cx="200" cy="200" r="37.5" fill="none" stroke="#fff" stroke-opacity=".12" />
+                <g fill="#141518" stroke="#000" stroke-opacity=".6">
+                    <path d="M197.5 200h5v34h-5z" />
+                    <path d="M180 240V214q0-8 6-8h2v34z" />
+                    <path d="M220 240V214q0-8-6-8h-2v34z" />
+                    <rect x="176" y="232" width="48" height="12" />
+                </g>
+            </symbol>
+        </defs>
+    </svg>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
